@@ -106,5 +106,16 @@ class RadioTest {
             radio.stationPrev();
         assertEquals(9, radio.getCurrentStation());
     }
+    @Test
+    void setStationOverMax() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(10);
+        assertEquals(0, radio.getCurrentStation());
+    }
+    @Test
+    void setStationBelowMin() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(-1);
+        assertEquals(0, radio.getCurrentStation());
+    }
 }
-
